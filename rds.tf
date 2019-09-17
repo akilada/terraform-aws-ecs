@@ -17,10 +17,10 @@ resource "aws_db_instance" "sonarqube_postgres" {
   db_subnet_group_name = "${aws_db_subnet_group.sonarqube_postgres_subnet_group.name}"
 
   allocated_storage = 40
-  instance_class    = "db.t2.small"
+  instance_class    = "db.t2.micro"
   storage_type      = "gp2"
 
-  storage_encrypted   = true
+  storage_encrypted   = false
   skip_final_snapshot = false
 
   engine         = "postgres"

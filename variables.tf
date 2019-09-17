@@ -70,7 +70,7 @@ variable "openvpn" {
     default = {
         host_count        = 1
         ami_image         = "ami-0fd3faa55c9fd9517"
-        type              = "t2.small"
+        type              = "t2.micro"
         key_name          = "vpn-key"
         vpn_zone          = "ap-southeast-2a"
     }

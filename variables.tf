@@ -66,6 +66,12 @@ variable "fargate_sonarqube_memory" {
   default = 2048
 }
 
+variable "fargate_sonarqube_log" {
+  description = "ECS cloudwatch log group"
+  default     = "/ecs/sonarqube-fargate"
+}
+
+
 variable "openvpn" {
     default = {
         host_count        = 1

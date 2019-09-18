@@ -10,9 +10,21 @@ data "template_file" "sonarqube_app" {
     aws_region     = "${var.aws_region}"
     fargate_cpu    = "${var.fargate_sonarqube_cpu}"
     fargate_memory = "${var.fargate_sonarqube_memory}"
+    log_group      = "${aws_cloudwatch_log_group.sonarqube.name}"
   }
 
-  depends_on       = ["aws_db_instance.sonarqube_postgres"]
+  depends_on       = ["aws_db_instance.sonarqube_postgres", "aws_cloudwatch_log_group.sonarqube"]
+}
+
+## Cloudwatch log group for sonarqube
+resource "aws_cloudwatch_log_group" "sonarqube" {
+  name  = "${var.fargate_sonarqube_log}"
+
+  tags {
+    Name = "${var.prefix}-ecs-svc-sonarqube"
+    App  = "Sonarqube"
+  }
+  
 }
 
 ## Sonarqube SSM lookup

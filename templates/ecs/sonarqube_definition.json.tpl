@@ -23,7 +23,7 @@
             "logDriver": "awslogs",
             "secretOptions": null,
             "options": {
-                "awslogs-group": "/ecs/sonarqube-fargate",
+                "awslogs-group": "${log_group}",
                 "awslogs-region": "${aws_region}",
                 "awslogs-stream-prefix": "ecs-sonarqube"
             }

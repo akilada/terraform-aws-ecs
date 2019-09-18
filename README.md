@@ -16,6 +16,13 @@ terragrunt plan
 terragrunt apply
 ```
 
+Terraform Output
+---
+
+```
+terragrunt output -json
+```
+
 Terraform State
 ---
 

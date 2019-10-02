@@ -20,6 +20,7 @@ resource "aws_lb" "sonarqube_lb" {
   name               = "sonarqube-lb"
   subnets            = ["${aws_subnet.private_subnet.*.id}"]
   load_balancer_type = "application"
+  internal           = true
 
   security_groups    = ["${aws_security_group.sonarqube_elb_sg.id}"]
 

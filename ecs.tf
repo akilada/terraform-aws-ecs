@@ -91,7 +91,7 @@ resource "aws_ecs_service" "sonarqube_ecs_service" {
   load_balancer {
     target_group_arn  = "${aws_lb_target_group.sonarqube_lb_targetgroup.arn}"
     container_name    = "sonarqube"
-    container_port    = "${var.sonarqube_port}"
+    container_port    = "${var.app_port}"
   }
 
    tags {

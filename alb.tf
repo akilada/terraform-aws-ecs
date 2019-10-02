@@ -3,7 +3,7 @@ resource "aws_lb_target_group" "sonarqube_lb_targetgroup" {
   port                 = 9000
   protocol             = "HTTP"
   target_type          = "ip"
-  vpc_id               = "${module.vpc-data.vpc_id}"
+  vpc_id               = "${aws_vpc.vpc.id}"
   deregistration_delay = 120
 
   health_check {
@@ -22,7 +22,7 @@ resource "aws_lb" "sonarqube_lb" {
   load_balancer_type = "application"
   internal           = true
 
-  security_groups    = ["${aws_security_group.sonarqube_elb_sg.id}"]
+  security_groups    = ["${aws_security_group.sg_ecs_lb.id}"]
 
   tags = {
     Name = "sonarqube-elb"
